@@ -7,6 +7,7 @@ function isYearValid(y) {
     } 
 } 
 
+
 function maxDaysinMonth(d, m) {
     const oddMonths = ["01", "03", "05", "07", "08", "10", "12"];
     const evenMonths = ["04", "06", "09", "11"];
@@ -26,6 +27,7 @@ function maxDaysinMonth(d, m) {
     }
 }
 
+
 function isValidDate(string) {
     let day = string.slice(0, 2);
     let firstSlash = string.slice(2, 3);
@@ -40,6 +42,7 @@ function isValidDate(string) {
         return false;
     }
 }
+
 
 function isPalindrome(string) {
     let onlyDigits = string.split("/").join("");
@@ -57,6 +60,21 @@ function isPalindrome(string) {
     }
 }
 
+
+function getNextPalindromes(x) {
+    let palindromeCount = 0;
+    let date = new Date();
+    while (palindromeCount < x) {
+        date.setDate(date.getDate() + 1)
+        let newDate = date.toLocaleDateString();
+        if (isPalindrome(newDate)){
+            console.log(newDate);
+            palindromeCount += 1;
+        }
+    }
+}
+
+
 function isDatePalindrome(string) {
     if (isValidDate(string) && isPalindrome(string)) {
         console.log("Date palindrome");
@@ -69,6 +87,5 @@ function isDatePalindrome(string) {
 }
 
 
-
-// isValidDate("16/10/2024");
-isDatePalindrome("16/12/2161");
+getNextPalindromes(3);
+isDatePalindrome("16/02/2061");
