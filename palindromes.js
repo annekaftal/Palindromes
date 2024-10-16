@@ -42,27 +42,33 @@ function isValidDate(string) {
 }
 
 function isPalindrome(string) {
-    if (isValidDate(string)){
-        let onlyDigits = string.split("/").join("");
-        let digitMatches = 0;
-        for (let i = 0; i < 4; i++) {
-            if (onlyDigits[i] === onlyDigits[7 - i]){
-                digitMatches += 1;
-            }
+    let onlyDigits = string.split("/").join("");
+    let digitMatches = 0;
+    for (let i = 0; i < 4; i++) {
+        if (onlyDigits[i] === onlyDigits[7 - i]){
+            digitMatches += 1;
         }
-        if (digitMatches === 4){
-            console.log("Date is a palindrome");
-        }
-        else {
-            console.log("Date is not a palindrome")
-        }
-    } 
+    }
+    if (digitMatches === 4){
+        return true;
+    }
     else {
-        console.log("Invalid date");
+        return false;
+    }
+}
+
+function isDatePalindrome(string) {
+    if (isValidDate(string) && isPalindrome(string)) {
+        console.log("Date palindrome");
+        return true;
+    }
+    else {
+        console.log("Not a date palindrome");
+        return false; 
     }
 }
 
 
 
 // isValidDate("16/10/2024");
-isPalindrome("16/12/2161");
+isDatePalindrome("16/12/2161");
